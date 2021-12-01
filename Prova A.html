@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="Pt-Br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salário Família</title>
+</head>
+<body>
+    <div>
+        <h1>Cálculo do salário</h1><br>
+        <p><label>Salário Pago por hora:</label></p>
+        <input id="porhora" type="text"/>
+        <p><label>Horas trabalhadas:</label></p>
+        <input id="horastrab" type="text"/>
+        <p><label>Qtd de filhos menores de 14 Anos:</label></p>
+        <input id="qtdfilhos" type="text"/>
+        <button id="calcular" onclick="calculaSalario()">Calcular</button>
+
+        <div id="resposta"> 
+
+        </div>
+
+    <script type ="text/javascript">
+        function calculaSalario(){ // varial de elementos...
+            var valor = document.getElementById("porhora").value;
+            var quantidade = document.getElementById("horastrab").value;
+            var salario = valor*quantidade;
+            var qtdF = document.getElementById("qtdfilhos").value;
+            var resposta = document.getElementById("resposta")
+            var totalF
+                 // execução de valor da variaveu...
+            if(salario<=750)
+                totalF = qtdF * 23.50;
+            else if (salario > 750 && salario <= 1500) { totalF = qtdF * 12.5}
+            else {totalF = qtdF * 4.5}
+
+            resposta.innerHTML = "Salário bruto: " + salario + "<br>Salário familia: " + totalF
+
+        }
+    </script>
+
+</body>
+</html>

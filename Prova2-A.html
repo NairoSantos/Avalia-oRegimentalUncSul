@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="Pt-Br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcule Altura</title>
+</head>
+<body>
+    <main>
+        <h1>Calcula Altura:</h1>
+        <section>
+            <form id="f_cad" name="f_cad">
+                <div>
+                    <label for="nome">Nome: </label>
+                    <input type="text" id="nome" name="nome" autofocus>
+                </div>
+                <div>
+                    <label for="altura">Altura: </label>
+                    <input type="text" id="altura" name="altura">
+                </div>
+            </form>
+            <div> 
+                <button type="button" onclick="gravar()">Gravar</button>
+                <button type="button" onclick="mostrar()">Mostrar</button>
+            </div>
+            <div id="resposta"></div>
+        </section>
+    </main>
+    <script type="text/javascript">
+       var dados = [];
+     //variaveis de Gravação
+function gravar() {
+    var f_cad = document.f_cad;
+    var nome = f_cad.nome.value;
+    var altura = f_cad.altura.value;
+
+    dados.push({ nome, altura });
+    // Alerta de Gravação
+    alert("Salvo com sucesso!");
+    document.getElementById("f_cad").reset();
+    // caixa de texto
+    var textarea = document.getElementsByTagName("textarea");
+    if (!!textarea && textarea.length > 0)
+        mostrar();
+}
+     // Variavel mostra de Texto!
+function mostrar() {
+    var texto = "";
+     // aplicação de estrutura de repetição!
+    dados.forEach(d => {
+        texto += `${d.nome}, \n`;
+        texto += `${d.altura}\n`;
+    });
+   //variavel de Resposta...
+    document.getElementById("resposta").innerHTML = `
+            <textarea readonly>${texto}</textarea>
+    `;
+} 
+    </script>
+        
+</body>
+</html>
